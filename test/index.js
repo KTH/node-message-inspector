@@ -1,12 +1,15 @@
 'use strict'
 
 // const sinon = require('sinon')
-// let convertTo2dArray
+let messageInspector = require('../index.js')
 
 describe('addType.js', function () {
   beforeEach(function () {
     // convertTo2dArray = require('../../../convertTo2dArray')
   })
 
-  it('should convert an array with one type', () => {})
+  it('should add the type teacher', () => {
+    const msgWithType = messageInspector.addType({ug1Name: 'test'})
+    console.log(msgWithType)
+  })
 })
