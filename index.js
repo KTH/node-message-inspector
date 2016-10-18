@@ -6,7 +6,8 @@ module.exports = {
     const clone = Object.create(msg)
     if (clone.ug1Name.match(isTeacherRegExp)) {
 
+    } else {
+      clone.type = 'UNKNOWN'
     }
-    clone.type = 'EmilTestar'
     return clone
   }}

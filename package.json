@@ -9,6 +9,7 @@
   "author": "Emil Stenberg",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "should": "^11.1.1"
   }
 }
