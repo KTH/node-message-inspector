@@ -9,7 +9,7 @@ const type = {
 module.exports = {
   type,
   addType (msg) {
-    const result = JSON.parse(JSON.stringify(msg))
+    const result = Object.assign({}, msg)
     if (result.ugClass === 'user') {
       result.type = 'USER'
       return result
