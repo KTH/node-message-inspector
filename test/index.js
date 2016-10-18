@@ -10,4 +10,6 @@ describe('addType.js', function () {
 
   it('should add the type unknown', () => messageInspector.addType({ug1Name: 'test'}).type.should.equal('UNKNOWN'))
   it('should add the type teacher', () => messageInspector.addType({ug1Name: 'edu.courses.DD.abcdef.20161.1.teachers'}).type.should.equal('TEACHERS'))
+  it('should add the type assistants', () => messageInspector.addType({ug1Name: 'edu.courses.DD.abcdef.20161.1.assistants'}).type.should.equal('ASSISTANTS'))
+  it('should add the type courseresponsibles', () => messageInspector.addType({ug1Name: 'edu.courses.DD.abcdef.20161.1.courseresponsibles'}).type.should.equal('COURSERESPONSIBLES'))
 })

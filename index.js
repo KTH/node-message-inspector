@@ -6,6 +6,10 @@ module.exports = {
     const result = Object.create(msg)
     if (result.ug1Name.match(isTeacherRegExp)) {
       result.type = 'TEACHERS'
+    } else if (result.ug1Name.match(isAssistantsRegExp)) {
+      result.type = 'ASSISTANTS'
+    } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
+      result.type = 'COURSERESPONSIBLES'
     } else {
       result.type = 'UNKNOWN'
     }
