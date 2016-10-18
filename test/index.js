@@ -9,7 +9,7 @@ describe('addType.js', function () {
   })
 
   it('should add the type teacher', () => {
-    const msgWithType = messageInspector.addType({ug1Name: 'test'})
+    messageInspector.addType({ug1Name: 'test'}).should.equal('UNKNOWN')
     console.log(msgWithType)
   })
 })
