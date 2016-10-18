@@ -3,11 +3,11 @@ module.exports = {
     const isTeacherRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bteachers\b/
     const isAssistantsRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bassistants\b/
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsibles\b/
-    const clone = Object.create(msg)
-    if (clone.ug1Name.match(isTeacherRegExp)) {
-
+    const result = Object.create(msg)
+    if (result.ug1Name.match(isTeacherRegExp)) {
+      result.type = 'TEACHERS'
     } else {
-      clone.type = 'UNKNOWN'
+      result.type = 'UNKNOWN'
     }
-    return clone
+    return result
   }}
