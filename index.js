@@ -10,7 +10,9 @@ module.exports = {
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     const result = JSON.parse(JSON.stringify(msg))
     // console.log(result)
-    if (result.ug1Name.match(isTeacherRegExp)) {
+    if (result.ugClass === 'user') {
+      result.type = 'USER'
+    } else if (result.ug1Name.match(isTeacherRegExp)) {
       result.type = 'TEACHERS'
     } else if (result.ug1Name.match(isAssistantsRegExp)) {
       result.type = 'ASSISTANTS'
