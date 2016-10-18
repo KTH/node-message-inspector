@@ -1,4 +1,13 @@
+const type = {
+  user: 'USER',
+  students: 'STUDENTS',
+  teachers: 'TEACHERS',
+  courseresponsibles: 'COURSERESPONSIBLES',
+  assistants: 'ASSISTANTS',
+  unknown: 'UNKNOWN'}
+
 module.exports = {
+  type,
   addType (msg) {
     const result = JSON.parse(JSON.stringify(msg))
     if (result.ugClass === 'user') {
@@ -16,15 +25,15 @@ module.exports = {
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     // console.log(result)
     if (result.ug1Name.match(isTeacherRegExp)) {
-      result.type = 'TEACHERS'
+      result.type = type.teachers
     } else if (result.ug1Name.match(isAssistantsRegExp)) {
-      result.type = 'ASSISTANTS'
+      result.type = type.assistants
     } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
-      result.type = 'COURSERESPONSIBLES'
+      result.type = type.courseresponsibles
     } else if (result.ug1Name.match(isStudentsRegExp)) {
-      result.type = 'STUDENTS'
+      result.type = type.students
     } else {
-      result.type = 'UNKNOWN'
+      result.type = type.unknown
     }
     return result
   }}
