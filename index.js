@@ -17,7 +17,7 @@ module.exports = {
     }
 
     if (!result.ug1Name) {
-      result._desc = {type: type.unkown}
+      result._desc = {type: type.unknown}
       return result
     }
 
