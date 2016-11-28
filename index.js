@@ -5,19 +5,24 @@ const type = {
   teachers: 'TEACHERS',
   courseresponsibles: 'COURSERESPONSIBLES',
   assistants: 'ASSISTANTS',
-  unknown: 'UNKNOWN'}
+  unknown: 'UNKNOWN'
+}
 
 module.exports = {
   type,
-  addDescription (msg) {
+  addDescription(msg) {
     const result = Object.assign({}, msg)
     if (result.ugClass === 'user') {
-      result._desc = {type: type.user}
+      result._desc = {
+        type: type.user
+      }
       return result
     }
 
     if (!result.ug1Name) {
-      result._desc = {type: type.unknown}
+      result._desc = {
+        type: type.unknown
+      }
       return result
     }
 
@@ -27,15 +32,30 @@ module.exports = {
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     // console.log(result)
     if (result.ug1Name.match(isTeacherRegExp)) {
-      result._desc = {type: type.course, userType: type.teachers}
+      result._desc = {
+        type: type.course,
+        userType: type.teachers
+      }
     } else if (result.ug1Name.match(isAssistantsRegExp)) {
-      result._desc = {type: type.course, userType: type.assistants}
+      result._desc = {
+        type: type.course,
+        userType: type.assistants
+      }
     } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
-      result._desc = {type: type.course, userType: type.courseresponsibles}
+      result._desc = {
+        type: type.course,
+        userType: type.courseresponsibles
+      }
     } else if (result.ug1Name.match(isStudentsRegExp)) {
-      result._desc = {type: type.course, userType: type.students}
+      result._desc = {
+        type: type.course,
+        userType: type.students
+      }
     } else {
-      result._desc = {type: type.unknown}
+      result._desc = {
+        type: type.unknown
+      }
     }
     return result
-  }}
+  }
+}
