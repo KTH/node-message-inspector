@@ -1,10 +1,10 @@
 const type = {
   user: 'USER',
   course: 'COURSE',
-  students: 'STUDENTS',
-  teachers: 'TEACHERS',
-  courseresponsibles: 'COURSERESPONSIBLES',
-  assistants: 'ASSISTANTS',
+  students: 'STUDENT',
+  teachers: 'TEACHER',
+  courseresponsibles: 'Course Responsible',
+  assistants: 'TA',
   unknown: 'UNKNOWN'
 }
 
