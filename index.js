@@ -1,4 +1,5 @@
 const type = {
+  omregistrerade: 'OMREG',
   user: 'USER',
   course: 'COURSE',
   students: 'STUDENT',
@@ -30,7 +31,8 @@ module.exports = {
     const isAssistantsRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bassistants\b/
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsibles\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
-    
+    const isOmregRegexp = /ladok2\.kurser.\w{2}\.\w{4}.omregistrerade_\d{5}/
+                        //ladok2.kurser.KD.1070.omregistrerade_20171
     if (result.ug1Name.match(isTeacherRegExp)) {
       result._desc = {
         type: type.course,
@@ -50,6 +52,11 @@ module.exports = {
       result._desc = {
         type: type.course,
         userType: type.students
+      }
+    }  else if (result.ug1Name.match(isOmregRegexp)) {
+      result._desc = {
+        type: type.course,
+        userType: type.omregistrerade
       }
     } else {
       result._desc = {
