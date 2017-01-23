@@ -30,7 +30,7 @@ module.exports = {
     const isAssistantsRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bassistants\b/
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsibles\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
-    // console.log(result)
+    
     if (result.ug1Name.match(isTeacherRegExp)) {
       result._desc = {
         type: type.course,
