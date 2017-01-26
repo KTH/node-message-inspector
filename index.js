@@ -1,5 +1,5 @@
 const type = {
-  omregistrerade: 'OMREG',
+  omregistrerade: 'Re-reg student',
   user: 'USER',
   course: 'COURSE',
   students: 'STUDENT',
