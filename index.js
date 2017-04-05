@@ -6,7 +6,8 @@ const type = {
   teachers: 'TEACHER',
   courseresponsibles: 'Course Responsible',
   assistants: 'TA',
-  unknown: 'UNKNOWN'
+  unknown: 'UNKNOWN',
+  antagna: 'ANTAGNA'
 }
 
 module.exports = {
