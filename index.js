@@ -12,7 +12,7 @@ const type = {
 
 module.exports = {
   type,
-  addDescription(msg) {
+  addDescription (msg) {
     const result = Object.assign({}, msg)
     if (result.ugClass === 'user') {
       result._desc = {
@@ -33,7 +33,8 @@ module.exports = {
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsible\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     const isOmregRegexp = /ladok2\.kurser.\w{2}\.\w{4}.omregistrerade_\d{5}/
-                        //ladok2.kurser.KD.1070.omregistrerade_20171
+    const isAntagnaRegexp = /ladok2\.kurser.\w{2}\.\w{4}.antagna_\d{5}/
+
     if (result.ug1Name.match(isTeacherRegExp)) {
       result._desc = {
         type: type.course,
@@ -43,6 +44,11 @@ module.exports = {
       result._desc = {
         type: type.course,
         userType: type.assistants
+      }
+    } else if (result.ug1Name.match(isAntagnaRegexp)) {
+      result._desc = {
+        type: type.course,
+        userType: type.antagna
       }
     } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
       result._desc = {
@@ -54,7 +60,7 @@ module.exports = {
         type: type.course,
         userType: type.students
       }
-    }  else if (result.ug1Name.match(isOmregRegexp)) {
+    } else if (result.ug1Name.match(isOmregRegexp)) {
       result._desc = {
         type: type.course,
         userType: type.omregistrerade
