@@ -1,40 +1,75 @@
 const type = {
+  omregistrerade: 'Re-reg student',
   user: 'USER',
   course: 'COURSE',
-  students: 'STUDENTS',
-  teachers: 'TEACHERS',
-  courseresponsibles: 'COURSERESPONSIBLES',
-  assistants: 'ASSISTANTS',
-  unknown: 'UNKNOWN'}
+  students: 'STUDENT',
+  teachers: 'TEACHER',
+  courseresponsibles: 'Course Responsible',
+  assistants: 'TA',
+  unknown: 'UNKNOWN',
+  antagna: 'OBSERVER'
+}
 
 module.exports = {
   type,
   addDescription (msg) {
     const result = Object.assign({}, msg)
     if (result.ugClass === 'user') {
-      result._desc = {type: type.user}
+      result._desc = {
+        type: type.user
+      }
       return result
     }
 
     if (!result.ug1Name) {
+      result._desc = {
+        type: type.unknown
+      }
       return result
     }
 
     const isTeacherRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bteachers\b/
     const isAssistantsRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bassistants\b/
-    const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsibles\b/
+    const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsible\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
-    // console.log(result)
+    const isOmregRegexp = /ladok2\.kurser.\w{2}\.\w{4}.omregistrerade_\d{5}/
+    const isAntagnaRegexp = /ladok2\.kurser.\w{2}\.\w{4}.antagna_\d{5}/
+
     if (result.ug1Name.match(isTeacherRegExp)) {
-      result._desc = {type: type.course, userType: type.teachers}
+      result._desc = {
+        type: type.course,
+        userType: type.teachers
+      }
     } else if (result.ug1Name.match(isAssistantsRegExp)) {
-      result._desc = {type: type.course, userType: type.assistants}
+      result._desc = {
+        type: type.course,
+        userType: type.assistants
+      }
+    } else if (result.ug1Name.match(isAntagnaRegexp)) {
+      result._desc = {
+        type: type.course,
+        userType: type.antagna
+      }
     } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
-      result._desc = {type: type.course, userType: type.courseresponsibles}
+      result._desc = {
+        type: type.course,
+        userType: type.courseresponsibles
+      }
     } else if (result.ug1Name.match(isStudentsRegExp)) {
-      result._desc = {type: type.course, userType: type.students}
+      result._desc = {
+        type: type.course,
+        userType: type.students
+      }
+    } else if (result.ug1Name.match(isOmregRegexp)) {
+      result._desc = {
+        type: type.course,
+        userType: type.omregistrerade
+      }
     } else {
-      result._desc = {type: type.unknown}
+      result._desc = {
+        type: type.unknown
+      }
     }
     return result
-  }}
+  }
+}
