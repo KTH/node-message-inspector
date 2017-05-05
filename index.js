@@ -7,7 +7,7 @@ const type = {
   courseresponsibles: 'Course Responsible',
   assistants: 'TA',
   unknown: 'UNKNOWN',
-  antagna: 'OBSERVER'
+  antagna: 'Applied pending registration (Observer)'
 }
 
 module.exports = {
