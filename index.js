@@ -33,7 +33,7 @@ module.exports = {
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsible\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     const isOmregRegexp = /ladok2\.kurser.\w{2}\.\w{4}.omregistrerade_\d{5}/
-    const isAntagnaRegexp = /ladok2\.kurser.\w{2}\.\w{4}.antagna_\d{5}/
+    const isAntagnaRegexp = /ladok2\.kurser.\w{2}\.\w{4}.antagna_\d{5}.\d/
 
     if (result.ug1Name.match(isTeacherRegExp)) {
       result._desc = {
