@@ -6,8 +6,7 @@ const type = {
   teachers: 'TEACHER',
   courseresponsibles: 'Course Responsible',
   assistants: 'TA',
-  unknown: 'UNKNOWN',
-  antagna: 'Applied pending registration (Observer)'
+  unknown: 'UNKNOWN'
 }
 
 module.exports = {
@@ -33,7 +32,6 @@ module.exports = {
     const isCourseResponsibleRegExp = /edu\.courses\.\w{2}\.\w{6}\.\d{5}\.\d\.\bcourseresponsible\b/
     const isStudentsRegExp = /ladok2\.kurser.\w{2}\.\w{4}.registrerade_\d{5}\.\d/
     const isOmregRegexp = /ladok2\.kurser.\w{2}\.\w{4}.omregistrerade_\d{5}/
-    const isAntagnaRegexp = /ladok2\.kurser.\w{2}\.\w{4}.antagna_\d{5}.\d/
 
     if (result.ug1Name.match(isTeacherRegExp)) {
       result._desc = {
@@ -44,11 +42,6 @@ module.exports = {
       result._desc = {
         type: type.course,
         userType: type.assistants
-      }
-    } else if (result.ug1Name.match(isAntagnaRegexp)) {
-      result._desc = {
-        type: type.course,
-        userType: type.antagna
       }
     } else if (result.ug1Name.match(isCourseResponsibleRegExp)) {
       result._desc = {
