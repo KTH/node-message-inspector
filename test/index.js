@@ -11,6 +11,7 @@ describe('addDescription.js', function () {
     it('should add the type students', () => addDescription({ug1Name: 'ladok2.kurser.SD.2230.registrerade_20162.1'})._desc.should.deepEqual({type: type.course, userType: type.students}))
     it('should add the type omregistrerad', () => addDescription({ug1Name: 'ladok2.kurser.KD.1070.omregistrerade_20171'})._desc.should.deepEqual({type: type.course, userType: type.omregistrerade}))
     it('should add the antagna', ()=> addDescription({ug1Name: 'ladok2.kurser.MG.212X.antagna_20172.1'})._desc.should.deepEqual({type: type.course, userType: type.antagna}))
+    it('should add the staff as students', ()=> addDescription({ug1Name: 'app.katalog3.A'})._desc.should.deepEqual({type: type.staff, userType: type.students}))
   })
 
   it('should add the type unknown', () => addDescription({})._desc.should.deepEqual({type: type.unknown}))
